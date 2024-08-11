@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: nginx-test
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: "https://github.com/discord-bot-sleeper/argocd-apps.git"
+    path: "nginx-manifests"
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

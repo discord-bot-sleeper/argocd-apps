@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2
+  namespace: argocd
+spec:
+  destination:
+    namespace: app2-namespace
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: "https://github.com/discord-bot-sleeper/argocd-apps.git"
+    path: "app2-manifests"
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
