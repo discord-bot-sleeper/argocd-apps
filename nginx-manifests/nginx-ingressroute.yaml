@@ -1,13 +1,16 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: nginx
 spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`test.cluster.koozu.fi`)
-      kind: Rule
-      services:
-        - name: nginx
-          port: 80
+  rules:
+    - host: test.cluster.koozu.fi
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx
+                port:
+                number: 80
