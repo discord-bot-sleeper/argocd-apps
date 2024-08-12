@@ -9,14 +9,14 @@ spec:
   source:
     repoURL: https://github.com/discord-bot-sleeper/argocd-apps.git
     targetRevision: HEAD
-    chart: docker.io/traefik:v3.1.0
+    chart: traefik/traefik
     helm:
       values-file:
         - traefik-values/values.yml
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: traefik
   syncPolicy:
     automated:
       prune: true
