@@ -4,5 +4,5 @@
 
 ingressRoute:
   dashboard:
-    enabled: false
-    entryPoints: ["traefik, web"]
+    enabled: true
+    entryPoints: ["traefik", "web"]

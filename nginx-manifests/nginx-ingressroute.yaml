@@ -5,13 +5,13 @@ metadata:
   namespace: nginx-test
 spec:
   rules:
-    - host: atest.cluster.koozu.fi
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx
-                port:
-                  number: 80
+    #- host: atest.cluster.koozu.fi
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx
+              port:
+                number: web
