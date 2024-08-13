@@ -5,7 +5,6 @@ metadata:
   namespace: nginx-test
 spec:
   rules:
-    #- host: atest.cluster.koozu.fi
     http:
       paths:
         - path: /
