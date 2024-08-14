@@ -5,4 +5,17 @@
 ingressRoute:
   dashboard:
     enabled: true
+    matchRule: Host(`traefik.cluster.koozu.fi`)
     entryPoints: ["traefik", "web"]
+
+providers:
+  kubernetesIngress:
+    publishedService:
+      enabled: true
+  kubernetesCRD:
+    allowCrossNamespace: true
+
+ports:
+  traefik:
+    expose:
+      default: true
