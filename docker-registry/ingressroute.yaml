@@ -10,5 +10,5 @@ spec:
     - match: Host(`registry.cluster.koozu.fi`) # Replace with your actual domain
       kind: Rule
       services:
-        - name: registry # Name of your NGINX service
+        - name: docker-registry # Name of your NGINX service
           port: 5000 # Port on which the NGINX service is exposed
