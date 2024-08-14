@@ -6,6 +6,7 @@ metadata:
 spec:
   entryPoints:
     - web # Define the entry point (e.g., web, websecure)
+    - traefik
   routes:
     - match: Host(`nginx.cluster.koozu.fi`) # Replace with your actual domain
       kind: Rule
