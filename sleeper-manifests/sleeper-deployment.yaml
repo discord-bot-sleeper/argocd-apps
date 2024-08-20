@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sleeper
+  labels:
+    app: sleeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleeper
+  template:
+    metadata:
+      labels:
+        app: sleeper
+    spec:
+      imagePullSecrets:
+        - name: docker-secret
+      containers:
+        - name: sleeper
+          image: koozu/sleeper:latest
+          ports:
+            - name: web
+              containerPort: 8080
