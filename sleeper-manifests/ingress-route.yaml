@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: sleeper-ingress
+  namespace: closed-services
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`api.cluster.koozu.fi`)
+      kind: Rule
+      services:
+        - name: sleeper
+          port: 8080
+  tls:
+    secretName: sleeper-tls
