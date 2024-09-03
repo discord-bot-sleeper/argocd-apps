@@ -13,4 +13,4 @@ spec:
         - name: sleeper
           port: 8080
   tls:
-    secretName: sleeper-tls
+    secretName: letsencrypt-production
